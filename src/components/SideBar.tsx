@@ -73,7 +73,12 @@ export const SideBar = () => {
             </div>
             <div className="gap-0">
               <b>Email</b>
-              <a href="mailto:dimarijnr@gmail.com">dimarijnr@gmail.com</a>
+              <a
+                className="hover:text-gold-2"
+                href="mailto:dimarijnr@gmail.com"
+              >
+                dimarijnr@gmail.com
+              </a>
             </div>
           </div>
           <div className="flex gap-2 place-items-center">
@@ -82,7 +87,9 @@ export const SideBar = () => {
             </div>
             <div className="gap-0">
               <b>Phone</b>
-              <a href="phone:+447918143478">+44(0)7918143478</a>
+              <a className="hover:text-gold-2" href="phone:+447918143478">
+                +44(0)7918143478
+              </a>
             </div>
           </div>
           <div className="flex gap-2 place-items-center">
@@ -91,7 +98,7 @@ export const SideBar = () => {
             </div>
             <div className="gap-0">
               <b>Location</b>
-              <a>London, United Kingdom</a>
+              <a className="hover:text-gold-2">London, United Kingdom</a>
             </div>
           </div>
         </div>

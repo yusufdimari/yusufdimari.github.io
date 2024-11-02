@@ -2,7 +2,7 @@ export enum screens {
   About = "About",
   Portfolio = "Portfolio",
   Resume = "Resume",
-  Contact = "Contact",
+  // Contact = "Contact",
   // Blog = "Blog",
 }
 

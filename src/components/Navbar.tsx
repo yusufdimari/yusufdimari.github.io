@@ -15,7 +15,7 @@ export const Navbar = ({
       rounded-tl-3xl rounded-tr-3xl md:rounded-bl-3xl md:rounded-tl-none
       fixed md:absolute md:top-0 right-0
       md:border-t-0 md:border-r-0 md:border-b-1
-      bg-white md:px-10 bottom-0 md:bottom-auto z-10"
+      bg-white md:px-10 bottom-0 md:bottom-auto z-20"
     >
       <ul className="flex md:gap-10 justify-evenly md:justify-start">
         {Object.values(screens).map((nav) => (

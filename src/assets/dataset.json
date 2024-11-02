@@ -1,0 +1,52 @@
+{
+  "education": [
+    {
+      "title": "London South Bank University",
+      "duration": "2024 - present",
+      "description": "Pursuing Msc in Applied Artificial intelligence and Machine learning"
+    },
+    {
+      "title": "Nile Univeristy Of Nigeria",
+      "duration": "2019 — 2023",
+      "description": "Bsc Software Engineering (First class honors)"
+    }
+  ],
+
+  "experiences": [
+    {
+      "title": "Freelancer",
+      "duration": "June 2020 — Present",
+      "description": "Developed applications using the MERN stack and contributed to various freelance projects. Open to new web application development opportunities."
+    },
+    {
+      "title": "Blockchain Full Stack Developer (NEAR)",
+      "duration": "September 2024 — Present",
+      "description": "Built a comprehensive marketplace on the NEAR blockchain, allowing for token listing, unlisting, and purchasing. Developed and deployed smart contracts for minting NFTs, and created a backend server using Node.js, hosted via Firebase Functions."
+    },
+    {
+      "title": "Mobile App Developer, J-Class (Remote)",
+      "duration": "October 2022 — August 2024",
+      "description": "Improved app performance and organization by restructuring code, added new functionalities, enhanced UX, and led frontend development with a team using Scrum methodologies."
+    },
+    {
+      "title": "React JS/React Native Developer, AI Medicare (Remote)",
+      "duration": "January 2020 — October 2022",
+      "description": "Developed and integrated frontend features for web and mobile applications, enhancing visual and interactive elements, and contributed to website dashboard completion for geticart.com."
+    },
+    {
+      "title": "IT Admin, Leadership Perspective Limited",
+      "duration": "July 2019 — January 2020",
+      "description": "Managed email communications, supported event planning with proposal drafting, and transitioned from manual to digital attendance tracking, increasing operational efficiency."
+    },
+    {
+      "title": "Software Engineering Intern, Nigerian National Petroleum Corporation (NNPC)",
+      "duration": "June 2021 — September 2021",
+      "description": "Contributed to maintaining and updating the company website, and supported fellow interns, improving their web development skills and team productivity."
+    },
+    {
+      "title": "Software Engineering Intern, Rahza Tech Limited",
+      "duration": "June 2022 — September 2022",
+      "description": "Collaborated in workshops, developed social media handling strategies, gained knowledge in hashing techniques, and applied Agile methodologies to improve project workflow."
+    }
+  ]
+}
