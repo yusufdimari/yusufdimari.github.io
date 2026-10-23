@@ -138,3 +138,93 @@ main {
   .about-text p{
     margin-bottom: 15px;
   }
+
+@keyframes fade-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.screen-enter,
+.sidebar-enter,
+.stagger-item,
+.skill-icon,
+.timeline-item,
+.portfolio-grid {
+  animation: fade-rise 400ms ease both;
+}
+
+.stagger-item,
+.skill-icon,
+.timeline-item {
+  animation-delay: calc(var(--stagger, 0) * 60ms);
+}
+
+.skill-icon {
+  animation-delay: calc(var(--stagger, 0) * 40ms);
+}
+
+.timeline-item {
+  animation: fade-rise 500ms ease both;
+  animation-delay: calc(var(--stagger, 0) * 80ms);
+}
+
+.skill-badge {
+  transition: transform 0.25s ease;
+}
+
+.skill-icon:hover .skill-badge {
+  transform: scale(1.12);
+}
+
+.social-icon {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-2px);
+  opacity: 0.8;
+}
+
+.project-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+}
+
+.featured-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px hsla(0, 0%, 0%, 0.18);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .screen-enter,
+  .sidebar-enter,
+  .stagger-item,
+  .skill-icon,
+  .timeline-item,
+  .portfolio-grid {
+    animation: none;
+  }
+
+  .skill-badge,
+  .social-icon,
+  .project-card,
+  .featured-card {
+    transition: none;
+  }
+
+  .skill-icon:hover .skill-badge,
+  .social-icon:hover,
+  .project-card:hover,
+  .featured-card:hover {
+    transform: none;
+  }
+}

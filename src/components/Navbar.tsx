@@ -22,7 +22,7 @@ export const Navbar = ({
           <li
             key={nav}
             onClick={() => setActive(nav)}
-            className={`cursor-pointer hover:text-amber-500 ${
+            className={`cursor-pointer hover:text-amber-500 transition-colors duration-200 ${
               active === nav ? "font-bold text-amber-500" : ""
             }`}
           >

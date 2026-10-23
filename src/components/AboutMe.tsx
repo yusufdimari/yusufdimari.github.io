@@ -1,222 +1,173 @@
+import type { CSSProperties } from "react";
+
+const aboutParagraphs = [
+  <>
+    I am a <b>full-stack software engineer</b> specialising in production{" "}
+    <b>web</b> and <b>mobile</b> applications, backend systems, and{" "}
+    <b>applied AI</b>. I build cross-platform products with{" "}
+    <b>React Native</b>, <b>TypeScript</b>, <b>Python</b>, REST APIs,
+    databases, and cloud infrastructure.
+  </>,
+  <>
+    I hold an MSc in <b>Artificial Intelligence</b> with Distinction from
+    London South Bank University and a First-Class BSc in{" "}
+    <b>Software Engineering</b>. I combine hands-on engineering with system
+    design, production observability, automated testing, and multimodal AI
+    integration.
+  </>,
+  <>
+    I have a proven track record of delivering scalable, high-performance
+    solutions, designing APIs, and shipping user-facing products. I thrive in
+    collaborative environments and enjoy mentoring junior developers. I am
+    dedicated to continuous learning and improvement in my field.
+  </>,
+  <>
+    In my spare time, I enjoy playing football, practicing photography, and
+    learning new languages, all of which contribute to my creativity,
+    discipline, and adaptability.
+  </>,
+];
+
 export function AboutMe() {
   return (
-    <section className="xl:h-[600px] flex flex-col justify-center">
+    <section className="xl:h-[600px] xl:overflow-y-auto flex flex-col">
       <p className="font-bold text-2xl mb-5">About Me</p>
       <div className="about-text">
-        <p>
-          <p>
-            I am a skilled <b>software engineer</b> specializing in{" "}
-            <b>full-stack development</b> with the<b> MERN</b> stack (MongoDB,
-            Express, React, Node.js) and <b>mobile</b> development using{" "}
-            <b>React Native</b>.
+        {aboutParagraphs.map((paragraph, index) => (
+          <p
+            key={index}
+            className="stagger-item"
+            style={{ "--stagger": index } as CSSProperties}
+          >
+            {paragraph}
           </p>
-          <p>
-            With a First-Class degree in <b>Software Engineering</b> and
-            currently pursuing a Master’s in <b>Artificial Intelligence</b>, I
-            am experienced in developing <b>user-centric</b> applications for
-            both web and <b>mobile</b> platforms. My background includes
-            building <b>decentralized</b> applications(dApps) with{" "}
-            <b>blockchain</b> integration, working with <b>Web3</b> technologies
-            , and creating <b>NFTs</b> on the <b>NEAR</b> protocol.
-          </p>
-          <p>
-            I have a proven track record of delivering <b>scalable</b>,
-            high-performance solutions, optimizing user interfaces, and managing
-            seamless <b>API</b> integrations. Known for my
-            <b> problem-solving</b>
-            abilities and commitment to code quality, I thrive in
-            <b> collaborative</b> environments and enjoy <b>mentoring</b> junior
-            developers. I am passionate about leveraging <b>innovative </b>
-            technologies to drive impactful digital solutions, and I am
-            dedicated to continuous <b>learning</b> and improvement in my field.
-          </p>
-          <p>
-            In my spare time, I enjoy playing football, practicing photography,
-            and learning new languages, all of which contribute to my
-            creativity, discipline, and adaptability.
-          </p>
-        </p>
+        ))}
       </div>
       <Skills />
     </section>
   );
 }
 
+const skills = [
+  {
+    name: "css3",
+    href: "https://www.w3schools.com/css/",
+    src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg",
+  },
+  {
+    name: "express",
+    href: "https://expressjs.com",
+    src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg",
+  },
+  {
+    name: "firebase",
+    href: "https://firebase.google.com/",
+    src: "https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg",
+  },
+  {
+    name: "git",
+    href: "https://git-scm.com/",
+    src: "https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg",
+  },
+  {
+    name: "html5",
+    href: "https://www.w3.org/html/",
+    src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg",
+  },
+  {
+    name: "mongodb",
+    href: "https://www.mongodb.com/",
+    src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg",
+  },
+  {
+    name: "nextjs",
+    href: "https://nextjs.org/",
+    src: "https://cdn.worldvectorlogo.com/logos/nextjs-2.svg",
+  },
+  {
+    name: "nodejs",
+    href: "https://nodejs.org",
+    src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg",
+  },
+  {
+    name: "postgresql",
+    href: "https://www.postgresql.org",
+    src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg",
+  },
+  {
+    name: "supabase",
+    href: "https://supabase.com",
+    src: "https://www.vectorlogo.zone/logos/supabase/supabase-icon.svg",
+  },
+  {
+    name: "docker",
+    href: "https://www.docker.com/",
+    src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg",
+  },
+  {
+    name: "fastapi",
+    href: "https://fastapi.tiangolo.com/",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg",
+  },
+  {
+    name: "postman",
+    href: "https://postman.com",
+    src: "https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg",
+  },
+  {
+    name: "python",
+    href: "https://www.python.org",
+    src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg",
+  },
+  {
+    name: "react",
+    href: "https://reactjs.org/",
+    src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg",
+  },
+  {
+    name: "reactnative",
+    href: "https://reactnative.dev/",
+    src: "https://reactnative.dev/img/header_logo.svg",
+  },
+  {
+    name: "redux",
+    href: "https://redux.js.org",
+    src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg",
+  },
+  {
+    name: "tailwind",
+    href: "https://tailwindcss.com/",
+    src: "https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg",
+  },
+  {
+    name: "typescript",
+    href: "https://www.typescriptlang.org/",
+    src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg",
+  },
+];
+
 const Skills = () => {
   return (
-    <section className="xl:absolute bottom-5">
-      <div className="flex gap-10 flex-wrap justify-center ">
-        <a
-          href="https://www.w3schools.com/css/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          {" "}
-          <img
-            className="Skilled"
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg"
-            alt="css3"
-            width="40"
-            height="40"
-          />{" "}
-        </a>
-        <a href="https://expressjs.com" target="_blank" rel="noreferrer">
-          {" "}
-          <img
-            className="Skilled"
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg"
-            alt="express"
-            width="40"
-            height="40"
-          />{" "}
-        </a>
-
-        <a href="https://firebase.google.com/" target="_blank" rel="noreferrer">
-          {" "}
-          <img
-            className="Skilled"
-            src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg"
-            alt="firebase"
-            width="40"
-            height="40"
-          />{" "}
-        </a>
-        <a href="https://git-scm.com/" target="_blank" rel="noreferrer">
-          {" "}
-          <img
-            className="Skilled"
-            src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg"
-            alt="git"
-            width="40"
-            height="40"
-          />{" "}
-        </a>
-
-        <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer">
-          {" "}
-          <img
-            className="Skilled"
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg"
-            alt="html5"
-            width="40"
-            height="40"
-          />{" "}
-        </a>
-        <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer">
-          {" "}
-          <img
-            className="Skilled"
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg"
-            alt="mongodb"
-            width="40"
-            height="40"
-          />{" "}
-        </a>
-
-        <a href="https://nextjs.org/" target="_blank" rel="noreferrer">
-          {" "}
-          <img
-            className="Skilled"
-            src="https://cdn.worldvectorlogo.com/logos/nextjs-2.svg"
-            alt="nextjs"
-            width="40"
-            height="40"
-          />{" "}
-        </a>
-        <a href="https://nodejs.org" target="_blank" rel="noreferrer">
-          {" "}
-          <img
-            className="Skilled"
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg"
-            alt="nodejs"
-            width="40"
-            height="40"
-          />{" "}
-        </a>
-        <a href="https://www.postgresql.org" target="_blank" rel="noreferrer">
-          {" "}
-          <img
-            className="Skilled"
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg"
-            alt="postgresql"
-            width="40"
-            height="40"
-          />{" "}
-        </a>
-        <a href="https://postman.com" target="_blank" rel="noreferrer">
-          {" "}
-          <img
-            className="Skilled"
-            src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg"
-            alt="postman"
-            width="40"
-            height="40"
-          />{" "}
-        </a>
-        <a href="https://www.python.org" target="_blank" rel="noreferrer">
-          {" "}
-          <img
-            className="Skilled"
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg"
-            alt="python"
-            width="40"
-            height="40"
-          />{" "}
-        </a>
-        <a href="https://reactjs.org/" target="_blank" rel="noreferrer">
-          {" "}
-          <img
-            className="Skilled"
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg"
-            alt="react"
-            width="40"
-            height="40"
-          />{" "}
-        </a>
-        <a href="https://reactnative.dev/" target="_blank" rel="noreferrer">
-          {" "}
-          <img
-            className="Skilled"
-            src="https://reactnative.dev/img/header_logo.svg"
-            alt="reactnative"
-            width="40"
-            height="40"
-          />{" "}
-        </a>
-        <a href="https://redux.js.org" target="_blank" rel="noreferrer">
-          {" "}
-          <img
-            className="Skilled"
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg"
-            alt="redux"
-            width="40"
-            height="40"
-          />{" "}
-        </a>
-        <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer">
-          {" "}
-          <img
-            className="Skilled"
-            src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg"
-            alt="tailwind"
-            width="40"
-            height="40"
-          />{" "}
-        </a>
-        <a
-          href="https://www.typescriptlang.org/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          {" "}
-          <img
-            className="Skilled"
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg"
-            alt="typescript"
-            width="40"
-            height="40"
-          />{" "}
-        </a>
+    <section className="mt-8 pb-4">
+      <div className="flex gap-8 flex-wrap justify-center">
+        {skills.map((skill, index) => (
+          <a
+            key={skill.name}
+            href={skill.href}
+            target="_blank"
+            rel="noreferrer"
+            className="skill-icon"
+            style={{ "--stagger": index } as CSSProperties}
+          >
+            <img
+              className="Skilled skill-badge"
+              src={skill.src}
+              alt={skill.name}
+              width="40"
+              height="40"
+            />
+          </a>
+        ))}
       </div>
     </section>
   );

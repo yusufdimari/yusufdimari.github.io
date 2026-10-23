@@ -14,9 +14,9 @@ export const SideBar = () => {
   const bigScreen = window.innerWidth >= 1024;
   const [visible, setVisible] = useState(bigScreen ? true : false);
   const qualifications = [
-    " Full-stack developer",
-    "Software engineer",
-    "AI & ML engineer",
+    "Full-stack engineer",
+    "Product engineering",
+    "Applied AI",
   ];
 
   const socials = [
@@ -34,7 +34,7 @@ export const SideBar = () => {
     { title: "Twitter", url: "https://twitter.com/Dimariyusuf", logo: x },
   ];
   return (
-    <div className="bg-white-3 p-5 rounded-3xl w-full xl:justify-center xl:w-fit xl:place-items-center gap-5 border border-black-1 relative xl:h-[650px] ">
+    <div className="bg-white-3 p-5 rounded-3xl w-full xl:justify-center xl:w-fit xl:place-items-center gap-5 border border-black-1 relative xl:h-[650px] sidebar-enter">
       <div
         onClick={() => setVisible(!visible)}
         className="border xl:hidden w-fit border-black-1 rounded-bl-3xl rounded-tr-3xl px-3 border-t-0 border-r-0 right-0 top-0 absolute cursor-pointer hover:bg-black-1 overflow-hidden hover:text-amber-500"
@@ -54,7 +54,10 @@ export const SideBar = () => {
             Yusuf M. Dimari
           </p>
           {qualifications.map((q) => (
-            <p className="bg-black-1 text-gold font-light px-2 text-sm xl:text-md rounded-md mt-2 text-center">
+            <p
+              key={q}
+              className="bg-black-1 text-gold font-light px-2 text-sm xl:text-md rounded-md mt-2 text-center"
+            >
               {q}
             </p>
           ))}
@@ -69,7 +72,7 @@ export const SideBar = () => {
         <div className="flex flex-col gap-5">
           <div className="flex gap-2 place-items-center">
             <div className="w-12 h-12 rounded-xl flex justify-center place-items-center bg-black-1">
-              <img src={EmailIcon} width={20} />
+              <img src={EmailIcon} width={20} alt="" />
             </div>
             <div className="gap-0">
               <b>Email</b>
@@ -83,22 +86,22 @@ export const SideBar = () => {
           </div>
           <div className="flex gap-2 place-items-center">
             <div className="w-12 h-12 rounded-xl flex justify-center place-items-center bg-black-1">
-              <img src={PhoneIcon} width={20} />
+              <img src={PhoneIcon} width={20} alt="" />
             </div>
             <div className="gap-0">
               <b>Phone</b>
-              <a className="hover:text-gold-2" href="phone:+447918143478">
-                +44(0)7918143478
+              <a className="hover:text-gold-2" href="tel:+447405853768">
+                +44 (0) 7405 853768
               </a>
             </div>
           </div>
           <div className="flex gap-2 place-items-center">
             <div className="w-12 h-12 rounded-xl flex justify-center place-items-center bg-black-1">
-              <img src={LocationIcon} width={20} />
+              <img src={LocationIcon} width={20} alt="" />
             </div>
             <div className="gap-0">
               <b>Location</b>
-              <a className="hover:text-gold-2">London, United Kingdom</a>
+              <p>London, United Kingdom</p>
             </div>
           </div>
         </div>
@@ -106,7 +109,13 @@ export const SideBar = () => {
       <section>
         <ul className="flex gap-3 mt-5 place-items-center justify-center">
           {socials.map(({ url, logo, title }) => (
-            <a href={url} target="_blank" className="cursor-pointer">
+            <a
+              key={title}
+              href={url}
+              target="_blank"
+              rel="noreferrer"
+              className="cursor-pointer social-icon"
+            >
               <img width={20} src={logo} alt={title} />
             </a>
           ))}
