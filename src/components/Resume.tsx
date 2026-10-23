@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, type CSSProperties, type ReactNode } from "react";
 import { BookIcon, Briefcase } from "../assets/svg";
 import data from "../assets/dataset.json";
 
@@ -9,76 +9,133 @@ type ResumeEntry = {
 };
 
 export const Resume = () => {
+  const [educationOpen, setEducationOpen] = useState(true);
+  const [experienceOpen, setExperienceOpen] = useState(true);
+
+  let stagger = 0;
+
   return (
     <section className="xl:h-[600px] xl:overflow-y-auto">
       <p className="font-bold text-2xl mb-5">My Resume</p>
-      <div className="flex flex-col pb-6">
-        <ResumeItem title="Education" data={data.education} icon={BookIcon} />
-        <ResumeItem
-          title="Experience"
-          data={data.experiences}
-          icon={Briefcase}
-        />
+      <div className="pb-6">
+        <TimelineRow
+          stagger={stagger++}
+          marker={
+            <SectionMarker
+              icon={BookIcon}
+              expanded={educationOpen}
+              controls="Education-content"
+              onToggle={() => setEducationOpen((open) => !open)}
+            />
+          }
+        >
+          <h2 className="font-bold text-xl pt-3 pb-5">Education</h2>
+        </TimelineRow>
+
+        <div id="Education-content">
+          {educationOpen &&
+            data.education.map((entry) => (
+              <TimelineRow key={entry.title} stagger={stagger++}>
+                <EntryBody entry={entry} />
+              </TimelineRow>
+            ))}
+        </div>
+
+        <TimelineRow
+          stagger={stagger++}
+          last={!experienceOpen}
+          marker={
+            <SectionMarker
+              icon={Briefcase}
+              expanded={experienceOpen}
+              controls="Experience-content"
+              onToggle={() => setExperienceOpen((open) => !open)}
+            />
+          }
+        >
+          <h2 className="font-bold text-xl pt-3 pb-5">Experience</h2>
+        </TimelineRow>
+
+        <div id="Experience-content">
+          {experienceOpen &&
+            data.experiences.map((entry, index) => (
+              <TimelineRow
+                key={entry.title}
+                stagger={stagger++}
+                last={index === data.experiences.length - 1}
+              >
+                <EntryBody entry={entry} />
+              </TimelineRow>
+            ))}
+        </div>
       </div>
     </section>
   );
 };
 
-function ResumeItem({
-  title,
-  data,
-  icon,
+function TimelineRow({
+  marker,
+  children,
+  stagger,
+  last = false,
 }: {
-  title: string;
-  data: ResumeEntry[];
-  icon: typeof BookIcon;
+  marker?: ReactNode;
+  children: ReactNode;
+  stagger: number;
+  last?: boolean;
 }) {
-  const [visible, setVisible] = useState(true);
+  const style = { "--stagger": stagger } as CSSProperties;
   return (
-    <div className="flex gap-5">
-      <button
-        aria-expanded={visible}
-        aria-controls={`${title}-content`}
-        className="flex z-10 place-items-start"
-        onClick={() => {
-          setVisible((state) => !state);
-        }}
-      >
-        <div className="w-14 h-14 rounded-xl bg-black-1 flex justify-center place-items-center">
-          <img src={icon} width={25} alt="" />
+    <div className="timeline-row" style={style}>
+      <div className="timeline-rail">
+        <div className="timeline-marker">
+          {marker ?? <EntryDot />}
         </div>
-      </button>
-      <ul className="flex flex-col transition-all duration-1000 ease-in-out">
-        <h1 className="font-bold text-xl mb-4 mt-2">{title}</h1>
-        <div
-          id={`${title}-content`}
-          className={`transition-all duration-700 ease-in-out ${
-            visible ? "opacity-100 xl:max-h-[1000px]" : "opacity-0 max-h-0"
-          }`}
-        >
-          {visible &&
-            data.map((s, index) => (
-              <li
-                key={s.title}
-                className="flex items-start mb-4 relative timeline-item"
-                style={{ "--stagger": index } as React.CSSProperties}
-              >
-                <div className="w-6 h-6 bg-black-1 rounded-full absolute top-0 -left-[60px] flex justify-center items-center">
-                  <div className="hidden xl:flex absolute w-[1px] bg-black-1 h-20 bottom-5"></div>
-                  {index < data.length - 1 && (
-                    <div className="hidden xl:flex absolute w-[1px] bg-black-1 h-20 top-5"></div>
-                  )}
-                  <div className="w-3 h-3 bg-gold rounded-full" />
-                </div>
-                <div className="flex flex-col">
-                  <p className="font-bold">{s.title}</p>
-                  <p className="text-gold-2 font-semibold">{s.duration}</p>
-                  <p>{s.description}</p>
-                </div>
-              </li>
-            ))}
-        </div>
-      </ul>
+        {!last && <span className="timeline-connector" aria-hidden />}
+      </div>
+      <div className="timeline-copy">{children}</div>
+    </div>
+  );
+}
+
+function SectionMarker({
+  icon,
+  expanded,
+  controls,
+  onToggle,
+}: {
+  icon: string;
+  expanded: boolean;
+  controls: string;
+  onToggle: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      aria-expanded={expanded}
+      aria-controls={controls}
+      onClick={onToggle}
+      className="w-14 h-14 rounded-xl bg-black-1 flex justify-center items-center"
+    >
+      <img src={icon} width={25} alt="" />
+    </button>
+  );
+}
+
+function EntryDot() {
+  return (
+    <div className="w-6 h-6 bg-black-1 rounded-full flex justify-center items-center">
+      <div className="w-3 h-3 bg-gold rounded-full" />
+    </div>
+  );
+}
+
+function EntryBody({ entry }: { entry: ResumeEntry }) {
+  return (
+    <div className="flex flex-col pb-5">
+      <p className="font-bold">{entry.title}</p>
+      <p className="text-gold-2 font-semibold">{entry.duration}</p>
+      <p>{entry.description}</p>
     </div>
   );
 }

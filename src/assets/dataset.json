@@ -13,6 +13,11 @@
   ],
   "experiences": [
     {
+      "title": "Full-Stack Software Engineer, Matoha Ltd (London)",
+      "duration": "July 2025 — Present",
+      "description": "Primary contributor to the core customer app and a major contributor to the cloud API for a live hardware-connected platform. Deliver React Native, Expo, TypeScript, and Python/REST features, including BLE instrument workflows, MongoDB pipelines, Gemini listing generation, PDF reporting, and production delivery with Docker, GCP, GitLab CI/CD, Sentry, and PostHog."
+    },
+    {
       "title": "React / React Native Developer, AI Medicare (Remote)",
       "duration": "October 2022 — August 2024",
       "description": "Developed web and mobile features from Figma using React, React Native, and JavaScript. Built frontend for a food-truck inventory platform covering staff, inventory, and menus, and a real-estate app with token-based utility bill payments. Integrated FastAPI endpoints for data retrieval and authentication."

@@ -23,7 +23,10 @@ export const Main = () => {
   return (
     <div className="bg-white-3 p-5 rounded-3xl w-full xl:w-2/3 gap-5 border border-black-1 md:relative md:first-letter:pt-14 mb-16 xl:mb-0">
       <Navbar active={active} setActive={setActive} />
-      <div key={active} className="screen-enter">
+      <div
+        key={active}
+        className={active === screens.Resume ? undefined : "screen-enter"}
+      >
         {renderScreen()}
       </div>
     </div>
